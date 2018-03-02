@@ -1,0 +1,422 @@
+body {
+  background: #3acfff;
+}
+
+/* loading 页面加载样式*/
+.loading {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,#6fc7b5 0%,#13bdce, 20%,#0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
+    background-size: 400%;
+    background-position: 0% 100%;
+    animation: gradient 7.5s ease-in-out infinite;
+}
+
+.loading .loading-logo {
+    color:#fff;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.loading * {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0) rotate(0deg);
+}
+
+.loading .dots .dot {
+    height: 300px;
+    width: 300px;
+}
+
+.loading .dots.animate .dot{
+    animation: loading-block 2.5s ease-in-out 1;
+}
+
+.loading .dots.animate .dot:after{
+    animation: loading-dot 2.5s ease-in-out 1;
+}
+
+.loading .dots .dot::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    transform: scale(.17);
+}
+
+.loading .dots .dot:nth-child(1) {
+    top: 129px;
+    left: -197px;
+    animation-delay: 0s;
+}
+
+.loading .dots .dot:nth-child(1):after {
+    transform-origin: top right;
+    top: 0;
+    right: 1px;
+    animation-delay: 0s;
+}
+
+.loading .dots .dot:nth-child(2) {
+    top: -142px;
+    left: -183px;
+    animation-delay: .25s;
+}
+
+.loading .dots .dot:nth-child(2):after {
+    bottom: 0;
+    right: 0;
+    transform-origin: bottom right;
+    animation-delay: .25s;    
+}
+.loading .dots .dot:nth-child(3) {
+    top:-156px;
+    left:-131px;
+    animation-delay: .5s;
+}
+
+.loading .dots .dot:nth-child(3):after {
+    bottom:0;
+    right:0;
+    transform-origin: bottom right;
+    animation-delay: .5s;    
+}
+
+.loading .dots .dot:nth-child(4) {
+    top: 148px;
+    left: 191px;
+    animation-delay: .75s;
+}
+
+.loading .dots .dot:nth-child(4):after {
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    animation-delay: .75s;    
+}
+
+.loading .dots .dot:nth-child(5) {
+    top: -130px;
+    left: 180px;
+    animation-delay: 1s;
+}
+
+.loading .dots .dot:nth-child(5):after {
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom left;
+    animation-delay: 1s;    
+}
+
+@keyframes loading-block {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);        
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+}
+
+@keyframes loading-dot {
+    0% {
+        transform: scale(.17);        
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(.17);                
+    }
+}
+
+@keyframes gradient{
+    0% {
+        background-position: 0% 100%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 100%;        
+    }
+}
+
+/* 个人信息区 */
+.self-info {
+    position: absolute;
+    top: 50%;;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-weight: 700;
+    width: 400px;
+    height: 350px;
+    background: #000;
+    opacity: .8;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.self-info a {
+    color: #fff;
+}
+
+.self-info .info-header {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info-header .name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.self-info .contact-list {
+    width: 215px;
+    margin: 30px auto;
+}
+
+.self-info .self-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.self-intro .intro-item:first-child {
+    flex-basis: 60%;
+}
+
+.self-intro .item-brief {
+    padding-left: 5px;
+}
+
+.self-info .info-tip {
+    color: #f1f1f1;
+    font-size: 18px;
+    animation: shine 1s infinite;
+    text-align: center;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* 内容区 */
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container .container-horizontal {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 20000px;
+    height: 100%;
+}
+
+.container-horizontal .cloud {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: url('../img/cloud.png');
+}
+
+.container-horizontal .mountain {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 100%;
+    height: 800px;
+    background: url(../img/mountain.png) ;
+    background-size: auto 800px;
+}
+
+.container-horizontal .ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('../img/background.png');
+}
+
+.container-horizontal .trees {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: url(../img/trees.png);
+    background-size: auto 300px;
+}
+
+.container-horizontal .project {
+    position: absolute;
+    top: 36%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    padding: 20px;
+    background: url(../img/project.png);
+    background-size: cover;
+}
+
+.container-horizontal .project-title {
+    margin-top: 15px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.container-horizontal .project-desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+}
+.container-horizontal .project-desc a {
+    color: #0000ff;
+}
+
+.container-horizontal .project1 {
+    left: 4000px;
+}
+
+.container-horizontal .project2 {
+    left: 7000px;
+}
+
+.container-horizontal .project3 {
+    left: 9000px;
+}
+
+.container-horizontal .project4 {
+    left: 11000px;
+}
+
+.container-horizontal .project5 {
+    left: 13000px;
+}
+
+.container-horizontal .project6 {
+    left: 13500px;
+}
+
+.container-horizontal .project7 {
+    left: 16500px;
+}
+
+.container-horizontal .project8 {
+    left: 18500px;
+}
+
+.container-horizontal .block {
+    position: absolute;
+    bottom: 100px;
+    width: 300px;
+    height: 220px;
+    background: url(../img/pipe.png) no-repeat;
+    background-size: cover;
+}
+
+.container-horizontal .block1 {
+    left: 1500px;
+  
+}
+
+.container-horizontal .block2 {
+    left: 3000px;
+    height: 160px;
+}
+
+.container-horizontal .block3 {
+    left: 5000px;
+    height: 160px;
+}
+
+.container-horizontal .block4 {
+    left: 5800px;
+    height: 160px;
+}
+
+.container-horizontal .block5 {
+    left: 8000px;
+}
+
+.container-horizontal .block6 {
+    left: 9500px;
+    height: 160px;
+}
+
+.container-horizontal .block7 {
+    left: 10000px;
+}
+
+.container-horizontal .block8 {
+    left: 12000px;
+    height: 160px;
+}
+
+.container-horizontal .block9 {
+    left: 14500px;
+}
+
+.container-horizontal .block10 {
+    left: 15500px;
+}
+
+.container-horizontal .block11 {
+    left: 17200px;
+    height: 160px;
+}
+
+.container-horizontal .going-on {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* 移动的people */
+.container-people {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    left: 50px;
+    bottom: 90px;
+    overflow: hidden;
+}
+
+.container-people .people {
+    position: absolute;
+    width: 800px;
+    height: 470px;
+    left: 0;
+    top: 0;
+    background: url('../img/people.png') no-repeat;
+}
